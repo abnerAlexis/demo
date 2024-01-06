@@ -1,14 +1,11 @@
-import { createRoot } from 'react-dom';
+import { createRoot } from "react-dom";
+import { MainView } from "./components/main-view/main-view";
 import "./index.scss";
 
-const Demo = () => {
-    return (
-        <div className='demo'>
-            <div>Hey there! You student You!</div>
-        </div>
-    );
+const App = () => {
+    return <MainView />;
 };
 
 const container = document.querySelector("#root");
 const root = createRoot(container);
-root.render(<Demo/>);
+root.render(<App/>);
