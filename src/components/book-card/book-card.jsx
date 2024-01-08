@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const BookCard = ({ book, onBookClick }) => {
     return (
       <div
@@ -10,9 +9,4 @@ export const BookCard = ({ book, onBookClick }) => {
       </div>
     );
   };
-=======
-export const BookCard = (props) => {
-    const {bookData} =props;
-    return <div>{bookData.title}</div>;
-}
->>>>>>> origin/main
+
