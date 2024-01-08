@@ -5691,7 +5691,10 @@ parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _bookCard = require("../book-card/book-card");
+<<<<<<< HEAD
 var _bookView = require("../book-view/book-view");
+=======
+>>>>>>> origin/main
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
@@ -5727,6 +5730,7 @@ const MainView = ()=>{
             author: "Robin Wieruch"
         }
     ]);
+<<<<<<< HEAD
     const [selectedBook, setSelectedBook] = (0, _react.useState)(null);
     if (selectedBook) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookView.BookView), {
         book: selectedBook,
@@ -5761,6 +5765,37 @@ const MainView = ()=>{
     }, undefined);
 };
 _s(MainView, "abkfdd2REPNMPPY497rHigvdftA=");
+=======
+    if (books.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "The list is empty!"
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 44,
+        columnNumber: 12
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: books.map((book)=>{
+            //This is how you pass data to the child component.
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
+                bookData: book
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 51,
+                columnNumber: 16
+            }, undefined);
+        })
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 48,
+        columnNumber: 5
+    }, undefined);
+}; // const [books, setBooks] = useState([]); // This code is short for the following;
+ // let books = [];
+ // const setBooks = function(newBookList){
+ //     books = newBookList;
+ // };
+_s(MainView, "HUcwRISSgrQdIJCLNSvvaQdD0FI=");
+>>>>>>> origin/main
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -5770,6 +5805,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../book-card/book-card":"8FC36","../book-view/book-view":"6u6eS","@parcel/transformer-js/src/esmodule-helpers.js":"50ajH","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bjFSm"}],"8FC36":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -5803,6 +5839,9 @@ $RefreshReg$(_c, "BookCard");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"50ajH","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bjFSm"}],"50ajH":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"50ajH","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bjFSm","../book-card/book-card":"8FC36"}],"50ajH":[function(require,module,exports) {
+>>>>>>> origin/main
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -5970,15 +6009,24 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
+<<<<<<< HEAD
 },{"b280d80e7085689c":"3kL9p"}],"6u6eS":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e99 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$1e99.prelude(module);
+=======
+},{"b280d80e7085689c":"3kL9p"}],"8FC36":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1994.prelude(module);
+>>>>>>> origin/main
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+<<<<<<< HEAD
 parcelHelpers.export(exports, "BookView", ()=>BookView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const BookView = ({ book, onBackClick })=>{
@@ -6061,6 +6109,25 @@ var _c;
 $RefreshReg$(_c, "BookView");
 
   $parcel$ReactRefreshHelpers$1e99.postlude(module);
+=======
+parcelHelpers.export(exports, "BookCard", ()=>BookCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const BookCard = (props)=>{
+    const { bookData } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: bookData.title
+    }, void 0, false, {
+        fileName: "src/components/book-card/book-card.jsx",
+        lineNumber: 3,
+        columnNumber: 12
+    }, undefined);
+};
+_c = BookCard;
+var _c;
+$RefreshReg$(_c, "BookCard");
+
+  $parcel$ReactRefreshHelpers$1994.postlude(module);
+>>>>>>> origin/main
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
