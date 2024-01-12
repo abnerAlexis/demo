@@ -7,7 +7,13 @@ export const MainView = () => {
 
   const [selectedBook, setSelectedBook] = useState(null);
 
-  useEffect(() => {fetch("https://openlibrary.org/search.json?q=star+wars");}, []);
+  useEffect(() => {
+    fetch("https://openlibrary.org/search.json?q=star+wars")
+      .then(response => response.json())
+      .then(data => {
+        console.log("books from api", data);
+      });
+  }, []);
 
   if (selectedBook) {
     return (
