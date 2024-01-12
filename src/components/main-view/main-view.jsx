@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BookCard } from "../book-card/book-card";
 import { BookView } from "../book-view/book-view";
+import PropTypes from "prop-types";
 
 export const MainView = () => {
   const [books, setBooks] = useState([]);
@@ -9,16 +10,16 @@ export const MainView = () => {
 
   useEffect(() => {
     fetch("https://openlibrary.org/search.json?q=star+wars")
-      .then(response => response.json())
-      .then(data => {
-        const booksFromApi = data.docs.map(doc => {
+      .then((response) => response.json())
+      .then((data) => {
+        const booksFromApi = data.docs.map((doc) => {
           return {
             id: doc.key,
             title: doc.title,
             image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            author: doc.author_name?.[0]
-          }
-        })
+            author: doc.author_name?.[0],
+          };
+        });
         setBooks(booksFromApi);
       });
   }, []);
@@ -46,4 +47,14 @@ export const MainView = () => {
       ))}
     </div>
   );
+};
+
+//Defining all the props constraints for the BookCard
+BookCard.propTypes = {
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    author: PropTypes.string
+  }).isRequired,
+  onBookClick: PropTypes.func.isRequired
 };
