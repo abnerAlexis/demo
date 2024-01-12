@@ -11,7 +11,7 @@ export const MainView = () => {
     fetch("https://openlibrary.org/search.json?q=star+wars")
       .then(response => response.json())
       .then(data => {
-        const booksFromApi = dat.docs.map(doc => {
+        const booksFromApi = data.docs.map(doc => {
           return {
             id: doc.key,
             title: doc.title,
