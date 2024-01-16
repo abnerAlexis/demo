@@ -90,5 +90,36 @@ After running the command, Parcel will build the project, creating new files in 
 
 View your project at http://localhost:1234. 
 
-(To start the server; type <span style="font-family: 'Monaco'; font-size: 12px; font-weight:light; color: green">
+(To start the server; type <span style="font-family: 'Monaco'; font-size: 16px; font-weight:light; color: yellow">
 parcel src/index.html</span> in terminal).
+
+
+### books, setBooks
+The following line of code is written in React and utilizes the `useState` hook:
+
+```
+const [books, setBooks] = useState([]);
+```
+
+1. `useState([])`: This is a call to the `useState` hook, which allows functional components to have state. It initializes the state variable with an empty array (`[]`).
+
+2. `const [books, setBooks]`: This line uses destructuring assignment to create two variables, `books` and `setBooks`, from the result of calling `useState([])`.
+   - `books`: Represents the current state value, initially set to an empty array.
+   - `setBooks`: A function to update the state variable `books`.
+
+In summary, this code initializes a state variable `books` with an empty array and provides a function `setBooks` to update the state, commonly used in React to manage component state.
+
+### selectedBook, setSelectedBook
+The following line of code is another example using the `useState` hook in React:
+
+```
+const [selectedBook, setSelectedBook] = useState(null);
+```
+
+1. `useState(null)`: This is a call to the `useState` hook, similar to the previous example. It initializes the state variable with `null` in this case.
+
+2. `const [selectedBook, setSelectedBook]`: This line uses destructuring assignment to create two variables, `selectedBook` and `setSelectedBook`, from the result of calling `useState(null)`.
+   - `selectedBook`: Represents the current state value, initially set to `null`.
+   - `setSelectedBook`: A function to update the state variable `selectedBook`.
+
+In summary, this code initializes a state variable `selectedBook` with `null` as its initial value and provides a function `setSelectedBook` to update the state. This pattern is commonly used in React to manage and update component state.
