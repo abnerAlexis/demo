@@ -147,3 +147,19 @@ If you encounter an error, stop the server and start it again.
 * username: 167OLdP5BUfLZGxP
 * password: K39eKYhPMV9DDWhJ
 
+## Deleting .parcel-cache, node_modules, and dist folders
+
+Rebuild the app by typing the following line in the terminal:
+
+```bash
+npm i
+
+Start the server:
+
+```
+
+parcel src/index.html
+
+```
+
+if you encounter an error, stop the server and start it again.
