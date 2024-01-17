@@ -123,6 +123,27 @@ const [selectedBook, setSelectedBook] = useState(null);
    - `setSelectedBook`: A function to update the state variable `selectedBook`.
 
 In summary, this code initializes a state variable `selectedBook` with `null` as its initial value and provides a function `setSelectedBook` to update the state. This pattern is commonly used in React to manage and update component state.
+
+
+## Deleting .parcel-cache, node_modules, and dist folders
+
+Rebuild the app by typing the following line in the terminal:
+
+npm i
+
+
+Start the server:
+
+```
+parcel src/index.html
+
+```
+
+
+
+If you encounter an error, stop the server and start it again.
+
 ## username and password to signin
 * username: 167OLdP5BUfLZGxP
 * password: K39eKYhPMV9DDWhJ
+
