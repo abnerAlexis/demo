@@ -27219,17 +27219,29 @@ const MainView = ()=>{
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: books.map((book)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
-                book: book,
-                onBookClick: (newSelectedBook)=>{
-                    setSelectedBook(newSelectedBook);
-                }
-            }, book.id, false, {
+        children: [
+            books.map((book)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
+                    book: book,
+                    onBookClick: (newSelectedBook)=>{
+                        setSelectedBook(newSelectedBook);
+                    }
+                }, book.id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 47,
+                    columnNumber: 9
+                }, undefined)),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    setUser(null);
+                },
+                children: "Logout"
+            }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 47,
-                columnNumber: 9
-            }, undefined))
-    }, void 0, false, {
+                lineNumber: 55,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
         lineNumber: 45,
         columnNumber: 5
