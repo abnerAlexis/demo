@@ -153,7 +153,7 @@ Rebuild the app by typing the following line in the terminal:
 
 ```bash
 npm i
-
+```
 Start the server:
 
 ```
