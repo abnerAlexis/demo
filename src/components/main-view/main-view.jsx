@@ -2,14 +2,10 @@ import { useState, useEffect } from "react";
 import { BookCard } from "../book-card/book-card";
 import { BookView } from "../book-view/book-view";
 import { LoginView } from "../login-view/login-view";
-import PropTypes from "prop-types";
+import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
   const [books, setBooks] = useState([]);
-
-  const [selectedBook, setSelectedBook] = useState(null);
-
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
     fetch("https://openlibrary.org/search.json?q=star+wars")
@@ -20,15 +16,26 @@ export const MainView = () => {
             id: doc.key,
             title: doc.title,
             image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            author: doc.author_name?.[0],
+            author: doc.author_name?.[0]
           };
         });
+
         setBooks(booksFromApi);
       });
   }, []);
 
+  const [selectedBook, setSelectedBook] = useState(null);
+
+  const [user, setUser] = useState(null);
+
   if (!user) {
-    return <LoginView onLoggedIn = {user => setUser(user)} />;
+    return (
+      <>
+        <LoginView onLoggedIn={(user) => setUser(user)} />
+        or
+        <SignupView />
+      </>
+    );
   }
 
   if (selectedBook) {
@@ -52,21 +59,6 @@ export const MainView = () => {
           }}
         />
       ))}
-      <button onClick={() => {
-        setUser(null);
-      }}>
-        Logout
-      </button>
     </div>
   );
-};
-
-//Defining all the props constraints for the BookCard
-BookCard.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    author: PropTypes.string
-  }).isRequired,
-  onBookClick: PropTypes.func.isRequired
 };
