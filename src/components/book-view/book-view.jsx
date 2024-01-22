@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import './book-view.scss';
 
 export const BookView = ({ book, onBackClick }) => {
   return (
@@ -14,7 +14,12 @@ export const BookView = ({ book, onBackClick }) => {
         <span>Author: </span>
         <span>{book.author}</span>
       </div>
-      <button onClick={onBackClick}>Back</button>
+      <button 
+        className="back-button" 
+        onClick={onBackClick}
+        style={{cursor:"pointer"}}>
+          Back
+        </button>
     </div>
   );
 };
