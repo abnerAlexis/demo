@@ -4,7 +4,7 @@ import {Button, Card} from "react-bootstrap"
 
 export const BookCard = ({ book, onBookClick }) => {
   return (
-    <Card onClick={() => onBookClick(book)}>
+    <Card onClick={() => onBookClick(book)} className="h-100">
       <Card.Img variant="top" src={book.image} />
       <Card.Body>
         <Card.Title>{book.title}</Card.Title>
