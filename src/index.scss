@@ -1,3 +1,8 @@
+$primary: Tan;
+$body-bg: PapayaWhip;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
 $color: rgb(121, 9, 3);
 .demo {
     color: $color;

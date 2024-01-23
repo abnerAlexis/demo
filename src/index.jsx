@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.scss";
 
 import { createRoot } from "react-dom/client";
@@ -9,7 +8,7 @@ import { Container } from 'react-bootstrap';
 
 const App = () => {
  return (
-    <Container>
+    <Container fluid>
         <MainView />
     </Container>
  );
