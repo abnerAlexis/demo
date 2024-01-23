@@ -4,8 +4,12 @@ import { BookView } from "../book-view/book-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 
+import { Row } from "react-bootstrap";
+
 export const MainView = () => {
   const [books, setBooks] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     fetch("https://openlibrary.org/search.json?q=star+wars")
@@ -24,41 +28,36 @@ export const MainView = () => {
       });
   }, []);
 
-  const [selectedBook, setSelectedBook] = useState(null);
-
-  const [user, setUser] = useState(null);
-
-  if (!user) {
     return (
-      <>
-        <LoginView onLoggedIn={(user) => setUser(user)} />
-        or
-        <SignupView />
-      </>
+      <Row>
+        {!user ? (
+          <>
+            <LoginView onLoggedIn={(user) => setUser(user)} />
+            or
+            <SignupView />
+          </>
+        ): selectedBook ? (
+          <BookView 
+            book = {selectedBook}
+            onBackClick={() => setSelectedBook(null)}
+          />
+        ): books.length === 0 ? (
+          <div>
+            There are no books to show.
+          </div>
+        ): (
+          <>
+            {books.map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                onBookClick={(newSelectedBook) => {
+                  setSelectedBook(newSelectedBook);
+                }}
+              />
+            ))}
+          </>
+        )}
+      </Row>
     );
-  }
-
-  if (selectedBook) {
-    return (
-      <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />
-    );
-  }
-
-  if (books.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
-  return (
-    <div>
-      {books.map((book) => (
-        <BookCard
-          key={book.id}
-          book={book}
-          onBookClick={(newSelectedBook) => {
-            setSelectedBook(newSelectedBook);
-          }}
-        />
-      ))}
-    </div>
-  );
 };
