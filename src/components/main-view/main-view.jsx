@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 
 import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap"
 
 export const MainView = () => {
   const [books, setBooks] = useState([]);
@@ -29,18 +30,20 @@ export const MainView = () => {
   }, []);
 
     return (
-      <Row>
+      <Row className="justify-content-md-center">
         {!user ? (
-          <>
+          <Col md={5} style={{border: "2px solid black"}}>
             <LoginView onLoggedIn={(user) => setUser(user)} />
             or
             <SignupView />
-          </>
+          </Col>
         ): selectedBook ? (
-          <BookView 
-            book = {selectedBook}
-            onBackClick={() => setSelectedBook(null)}
-          />
+          <Col md={8} style={{border: "2px solid orange"}}>
+            <BookView 
+              book = {selectedBook}
+              onBackClick={() => setSelectedBook(null)}
+            />
+          </Col>
         ): books.length === 0 ? (
           <div>
             There are no books to show.
