@@ -46,7 +46,7 @@ export const MainView = () => {
               </>
             }
           />
-          <Route 
+          <Route
             path="/login"
             element={
               <>
@@ -60,12 +60,12 @@ export const MainView = () => {
               </>
             }
           />
-          <Route 
+          <Route
             path="/books/:bookId"
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" replace/>
+                  <Navigate to="/login" replace />
                 ) : books.length === 0 ? (
                   <Col>There are no books to show.</Col>
                 ) : (
@@ -76,9 +76,9 @@ export const MainView = () => {
               </>
             }
           />
-          <Route 
+          <Route
             path="/"
-            element = {
+            element={
               <>
                 {!user ? (
                   <Navigate to="/login" replace />
@@ -138,82 +138,5 @@ export const MainView = () => {
         )}
       </Row>
     );
-
-*/
-
-/* 
-
-return (
-    <BrowserRouter>
-      <Row className="justify-content-md-center">
-        <Routes>
-          <Route
-            path="/signup"
-            element={
-              <>
-                {user ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Col md={5}>
-                    <SignupView />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <>
-                {user ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path="/books/:bookId"
-            element={
-              <>
-                {!user ? (
-                  <Navigate to="/login" replace />
-                ) : books.length === 0 ? (
-                  <Col>The list is empty!</Col>
-                ) : (
-                  <Col md={8}>
-                    <BookView books={books} />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <>
-                {!user ? (
-                  <Navigate to="/login" replace />
-                ) : books.length === 0 ? (
-                  <Col>The list is empty!</Col>
-                ) : (
-                  <>
-                    {books.map((book) => (
-                      <Col className="mb-4" key={book.id} md={3}>
-                        <BookCard book={book} />
-                      </Col>
-                    ))}
-                  </>
-                )}
-              </>
-            }
-          />
-        </Routes>
-      </Row>
-    </BrowserRouter>
-  );
 
 */
