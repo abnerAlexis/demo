@@ -1,8 +1,8 @@
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import './book-view.scss';
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import "./book-view.scss";
 
-export const BookView = ({ book, onBackClick }) => {
+export const BookView = ({ books }) => {
   const { bookId } = useParams();
 
   const book = books.fimd((b) => b.id === bookId);
