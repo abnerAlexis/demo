@@ -1,8 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import { Button } from "react-bootstrap";
-import { Form } from "react-bootstrap";
-
+import React, { useState} from "react";
+import { Button, Form } from "react-bootstrap";
+ 
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
