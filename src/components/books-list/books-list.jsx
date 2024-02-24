@@ -12,7 +12,7 @@ export const BooksList = () => {
         .toLowerCase();
 
     const filteredBooks = books.filter((book) => book.title.toLowerCase().includes(filter));
-    console.log("Books: " + JSON.stringify(books));
+    // console.log("Books: " + JSON.stringify(books));
     console.log("Filtered Books: " + JSON.stringify(filteredBooks));
 
     return (
@@ -26,7 +26,10 @@ export const BooksList = () => {
                 ) : (
                     filteredBooks.map((book) => {
                         <Col className="mb-4" key={book.id} md={3}>
-                            <BookCard book={book} />
+                            <BookCard book={book} 
+                                books={books}
+                                filteredBooks={filteredBooks}
+                            />
                         </Col>
                     })
                 )}
