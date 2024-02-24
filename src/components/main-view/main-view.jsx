@@ -11,9 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setBooks } from "../../redux/reducers/books";
 
 export const MainView = () => {
-  const books = useSelector((state) => state.books);
-  const [user, setUser] = useState(null);
-
+  const books = useSelector((state) => state.books.list);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export const MainView = () => {
             id: doc.key,
             title: doc.title,
             image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            author: doc.author_name?.[0],
+            author: doc.author_name?.[0]
           };
         });
 
@@ -35,12 +34,9 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
-      <NavigationBar
-        user={user}
-        onLoggedOut={() => {
-          setUser(null);
-        }}
-      />
+      <Row>
+        <NavigationBar />
+      </Row>
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -48,7 +44,7 @@ export const MainView = () => {
             element={
               <>
                 {user ? (
-                  <Navigate to="/" />
+                  <Navigate to="/" replace />
                 ) : (
                   <Col md={5}>
                     <SignupView />
@@ -62,10 +58,10 @@ export const MainView = () => {
             element={
               <>
                 {user ? (
-                  <Navigate to="/" />
+                  <Navigate to="/" replace />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView />
                   </Col>
                 )}
               </>
@@ -78,7 +74,7 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : books.length === 0 ? (
-                  <Col>There are no books to show.</Col>
+                  <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
                     <BookView />
@@ -90,21 +86,7 @@ export const MainView = () => {
           <Route
             path="/"
             element={
-              <>
-                {!user ? (
-                  <Navigate to="/login" replace />
-                ) : books.length === 0 ? (
-                  <Col>There are no books to show.</Col>
-                ) : (
-                  <>
-                    {books.map((book) => (
-                      <Col className="mb-4" key={book.id} md={3}>
-                        <BookCard book={book} />
-                      </Col>
-                    ))}
-                  </>
-                )}
-              </>
+              <>{!user ? <Navigate to="/login" replace /> : <BooksList />}</>
             }
           />
         </Routes>
@@ -112,42 +94,3 @@ export const MainView = () => {
     </BrowserRouter>
   );
 };
-/*
-
-  return (
-      <Row className="justify-content-md-center">
-        {!user ? (
-          <Col md={5} style={{border: "2px solid black"}}>
-            <LoginView onLoggedIn={(user) => setUser(user)} />
-            or
-            <SignupView />
-          </Col>
-        ): selectedBook ? (
-          <Col md={8} style={{border: "2px solid orange"}}>
-            <BookView 
-              book = {selectedBook}
-              onBackClick={() => setSelectedBook(null)}
-            />
-          </Col>
-        ): books.length === 0 ? (
-          <div>
-            There are no books to show.
-          </div>
-        ): (
-          <>
-            {books.map((book) => (
-             <Col xs={6} className="mb-4" key={book.id} md={3}>
-               <BookCard
-                book={book}
-                onBookClick={(newSelectedBook) => {
-                  setSelectedBook(newSelectedBook);
-                }}
-              />
-             </Col>
-            ))}
-          </>
-        )}
-      </Row>
-    );
-
-*/

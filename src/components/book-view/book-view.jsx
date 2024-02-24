@@ -4,7 +4,7 @@ import "./book-view.scss";
 import { useSelector } from "react-redux";
 
 export const BookView = () => {
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.list);
   const { bookId } = useParams();
 
   const book = books.fimd((b) => b.id === bookId);
