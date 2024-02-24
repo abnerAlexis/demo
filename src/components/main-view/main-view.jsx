@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BookCard } from "../book-card/book-card";
+import { BooksList } from "../books-list/books-list";
 import { BookView } from "../book-view/book-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
@@ -12,7 +12,9 @@ import { setBooks } from "../../redux/reducers/books";
 
 export const MainView = () => {
   const books = useSelector((state) => state.books.list);
+  // console.log(books);
   const user = useSelector((state) => state.user);
+  // console.log("User: " + JSON.stringify(user));
   const dispatch = useDispatch();
 
   useEffect(() => {
