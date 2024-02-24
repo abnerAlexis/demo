@@ -7,10 +7,14 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setBooks } from "../../redux/reducers/books";
 
 export const MainView = () => {
-  const [books, setBooks] = useState([]);
+  const books = useSelector((state) => state.books);
   const [user, setUser] = useState(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("https://openlibrary.org/search.json?q=star+wars")
@@ -25,7 +29,7 @@ export const MainView = () => {
           };
         });
 
-        setBooks(booksFromApi);
+        dispatch(setBooks(booksFromApi));
       });
   }, []);
 
@@ -77,7 +81,7 @@ export const MainView = () => {
                   <Col>There are no books to show.</Col>
                 ) : (
                   <Col md={8}>
-                    <BookView books={books} />
+                    <BookView />
                   </Col>
                 )}
               </>

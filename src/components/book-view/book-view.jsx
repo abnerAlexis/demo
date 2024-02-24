@@ -1,8 +1,10 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "./book-view.scss";
+import { useSelector } from "react-redux";
 
-export const BookView = ({ books }) => {
+export const BookView = () => {
+  const books = useSelector((state) => state.books);
   const { bookId } = useParams();
 
   const book = books.fimd((b) => b.id === bookId);
